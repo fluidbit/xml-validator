@@ -1,4 +1,4 @@
-# xml-validator
+# XML Validator
 Validates a XML file against a XSD file
 
 ## Usage
