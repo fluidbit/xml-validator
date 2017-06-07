@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<AuditFile xmlns="urn:OECD:StandardAuditFile-Tax:PT_1.04_01">
+  <Header>
+    <AuditFileVersion>1.04_01</AuditFileVersion>
+    <CompanyID>000000000</CompanyID>
+    <TaxRegistrationNumber>100000000</TaxRegistrationNumber>
+    <TaxAccountingBasis>F</TaxAccountingBasis>
+    <CompanyName>Test 123</CompanyName>
+    <BusinessName>Test 123</BusinessName>
+    <CompanyAddress>
+      <AddressDetail>Some street</AddressDetail>
+      <City>My City</City>
+      <PostalCode>0000-000</PostalCode>
+      <Region>Place</Region>
+      <Country>PT</Countr
+
+
+
+    <SoftwareCertificateNumber>682</SoftwareCertificateNumber>
+    <ProductID>Test/Test12340912</ProductID>
+    <ProductVersion>8.0.3.42321</ProductVersion>
+    <Telephone>+351 200 600 500</Telephone>
+    <Fax>+351 200 600 800</Fax>
+    <Email>info@test.pt</Email>
+    <Website>www.test.pt</Website>
+  </Header>
+  <MasterFiles>
+    <Customer>
+      <CustomerID>99999</CustomerID>
+      <AccountID>Desconhecido</AccountID>
+      <CustomerTaxID>999999990</CustomerTaxID>
+      <CompanyName>Consumidor Final</CompanyName>
+      <BillingAddress>
+        <AddressDetail>Desconhecido</AddressDetail>
+        <City>Desconhecido</City>
+        <PostalCode>0000-000</PostalCode>
+        <Country>PT</Country>
+      </BillingAddress>
+      <ShipToAddress>
+        <AddressDetail>Desconhecido</AddressDetail>
+        <City>Desconhecido</City>
+        <PostalCode>0000-000</PostalCode>
+        <Country>PT</Country>
+      </ShipToAddress>
+      <SelfBillingIndicator>0</SelfBillingIndicator>
+    </Customer>
+  </MasterFiles>
+  <SourceDocuments>
+    <SalesInvoices>
+      <NumberOfEntries>0</NumberOfEntries>
+      <TotalDebit>0.00</TotalDebit>
+      <TotalCredit>0.00</TotalCredit>
+    </SalesInvoices>
+    <MovementOfGoods>
+      <NumberOfMovementLines>0</NumberOfMovementLines>
+      <TotalQuantityIssued>0</TotalQuantityIssued>
+    </MovementOfGoods>
+  </SourceDocuments>
+</AuditFile>

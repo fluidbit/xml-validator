@@ -8,26 +8,31 @@ import java.io.IOException;
 
 public class Application {
 
+	private static class ApplicationState {
+		public String xsdFilePath;
+		public String xmlFilePath;
+		public XmlSchema schema;
+		public File xsdFile;
+		public File xmlFile;
+	}
+
 	private static final String PARAM_XSD = "--xsd";
 	private static final String PARAM_XML = "--xml";
-	private static String xsdFilePath;
-	private static String xmlFilePath;
-	private static XmlSchema schema;
-	private static File xsdFile;
-	private static File xmlFile;
+	private static ApplicationState state;
 
-	public static void main(String[] args) {
+	public synchronized static void main(String[] args) {
+		state = new ApplicationState();
 		parseInputParams(args);
 		validateInputParams();
 
 		try {
-			schema = new XmlSchema(xsdFile);
+			state.schema = new XmlSchema(state.xsdFile);
 		} catch (SAXException e) {
 			System.exit(emitError(ApplicationError.INVALID_XSD_FILE));
 		}
 
 		try {
-			schema.validate(xmlFile);
+			state.schema.validate(state.xmlFile);
 		} catch (SAXWarningException e) {
 			emitError(ApplicationError.XML_VALIDATION_WARNING, e);
 		} catch (IOException e) {
@@ -40,20 +45,20 @@ public class Application {
 	}
 
 	private static void validateInputParams() {
-		if (StringUtils.isEmpty(xsdFilePath)) {
+		if (StringUtils.isEmpty(state.xsdFilePath)) {
 			System.exit(emitError(ApplicationError.XSD_PARAMETER_NOT_SPECIFIED));
 		}
-		if (StringUtils.isEmpty(xmlFilePath)) {
+		if (StringUtils.isEmpty(state.xmlFilePath)) {
 			System.exit(emitError(ApplicationError.XML_PARAMETER_NOT_SPECIFIED));
 		}
 
-		xsdFile = new File(xsdFilePath);
-		if (!xsdFile.exists()) {
+		state.xsdFile = new File(state.xsdFilePath);
+		if (!state.xsdFile.exists()) {
 			System.exit(emitError(ApplicationError.XSD_FILE_NOT_FOUND));
 		}
 
-		xmlFile = new File(xmlFilePath);
-		if (!xmlFile.exists()) {
+		state.xmlFile = new File(state.xmlFilePath);
+		if (!state.xmlFile.exists()) {
 			System.exit(emitError(ApplicationError.XML_FILE_NOT_FOUND));
 		}
 	}
@@ -61,11 +66,11 @@ public class Application {
 	private static void parseInputParams(String[] args) {
 		for (int argi = 0; argi < args.length; argi++) {
 			if (args[argi].equalsIgnoreCase(PARAM_XSD) && (argi + 1) < args.length) {
-				xsdFilePath = args[++argi];
+				state.xsdFilePath = args[++argi];
 				continue;
 			}
 			if (args[argi].equalsIgnoreCase(PARAM_XML) && (argi + 1) < args.length) {
-				xmlFilePath = args[++argi];
+				state.xmlFilePath = args[++argi];
 			}
 		}
 	}
