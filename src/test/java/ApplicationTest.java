@@ -20,7 +20,7 @@ public class ApplicationTest {
 		String xsdFilePath = getClass().getResource("sample-schema.xsd").getPath();
 		Application.main(new String[] {"--xml", xmlFilePath, "--xsd", xsdFilePath});
 
-		assertEquals("[OK] Valid\n", systemOutRule.getLog());
+		assertEquals("[OK] Valid".trim(), systemOutRule.getLog().trim());
 	}
 
 	@Test
