@@ -1,7 +1,9 @@
+package pt.fluidbit;
+
 import org.apache.commons.lang3.StringUtils;
 import org.xml.sax.SAXException;
-import pt.fluidbit.xml.exception.SAXWarningException;
 import pt.fluidbit.xml.XmlSchema;
+import pt.fluidbit.xml.exception.SAXWarningException;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,3 +1,5 @@
+package pt.fluidbit;
+
 public enum ApplicationError {
 	XSD_PARAMETER_NOT_SPECIFIED(40, "The required parameter --xsd must be specified"),
 	XML_PARAMETER_NOT_SPECIFIED(41, "The required parameter --xml must be specified"),

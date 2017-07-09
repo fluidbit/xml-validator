@@ -1,8 +1,9 @@
-import org.junit.AfterClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 import org.junit.contrib.java.lang.system.SystemOutRule;
+import pt.fluidbit.Application;
+import pt.fluidbit.ApplicationError;
 
 import static junit.framework.Assert.assertEquals;
 

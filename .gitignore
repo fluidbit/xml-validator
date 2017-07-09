@@ -4,3 +4,5 @@ gradle/
 gradlew
 gradlew.bat
 xml-validator.iml
+build
+out
